@@ -3,4 +3,6 @@ layout: page
 title: About me 
 ---
 
-This is where you could put your "About me" page.
+My name is Felipe. That's all.
+
+I program, but I do not think of myself as a programmer.
