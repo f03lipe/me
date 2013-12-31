@@ -1,0 +1,21 @@
+name: Your New Jekyll Site
+
+description: Blogging about stuffs
+meta_description: "Your New Jekyll Site, Blogging about stuffs"
+
+markdown: redcarpet
+pygments: true
+logo: false
+paginate: 15
+
+pygments: true
+exclude:
+ - unicorn.rb
+ - README.md
+ - Procfile
+ - Gemfile
+ - Gemfile.lock
+ - config.ru
+ - vendor
+ - Rakefile
+ - .gitignore
