@@ -1,0 +1,76 @@
+
+body {
+	font-size: 1.9rem; /* Font size of 2.0 is too big, I'll reduce it */
+
+	font-family: "Open Sans", sans-serif;
+}
+
+h3 {
+	margin-bottom: 10px;
+}
+
+body.blog {
+
+	/* Adding some text shadow*/
+	.site-head {text-shadow: 2px 2px #234;}
+	.site-head a {color:#eee;}
+
+	/* The font is too large in the post view. Revert to small size*/
+	.post-header .blog-title {font-size:inherit;}
+
+	/* Reduce font size and add line-height*/
+	pre{
+		font-size: 0.75em;  
+		line-height: 1.4em;
+	}
+
+	/* Author styling */
+	.author {margin-bottom:1em;}
+	.author header{
+		float:left;
+		width: 80px;
+	}
+	.author article{
+		margin-left:80px;
+		min-height: 80px;
+		padding-left:20px;
+	}
+	img.profile {
+		width:80px;
+		height:auto;
+	  	border-radius: 50px;
+	}
+}
+
+body.index {
+	padding-top: 40px;
+	padding-left: 40px;
+
+	font-size: 1;
+}
+
+.cli-wrapper {
+
+	.b-cursor::after {
+		opacity: 0;
+-webkit-animation: blink-cursor 1s infinite;
+   -moz-animation: all .4s ease-in-out;
+   	-ms-animation: all .4s ease-in-out;
+	 -o-animation: all .4s ease-in-out;
+		animation: blink-cursor 1s infinite;
+		content: "|";
+	}
+	
+	.cli-content, [data-cli]:not(.cli-line) {
+		display: none;
+	}
+
+}
+
+@keyframes blink-cursor {
+	50% { opacity: 1; }
+}
+
+@-webkit-keyframes blink-cursor {
+	50% { opacity: 1; }
+}
