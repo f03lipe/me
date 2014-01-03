@@ -15,13 +15,4 @@ paginate: 5
 permalink: pretty
 
 pygments: true
-exclude:
- - unicorn.rb
- - README.md
- - Procfile
- - Gemfile
- - Gemfile.lock
- - config.ru
- - vendor
- - Rakefile
- - .gitignore
+exclude: [unicorn.rb, README.md, Procfile, Gemfile, Gemfile.lock, config.ru, vendor, Rakefile, .gitignore]
