@@ -1,7 +1,8 @@
 ---
-layout: default
+layout: blog
 disqus: false
 archive: false
+about: about
 ---
 
 <main class="content" role="main">
@@ -48,14 +49,16 @@ archive: false
         	<!-- If we want to display author's name and bio -->
             {% if site.author %}
                 <section class="author">
-                	<header> <a href="{{ site.baseurl }}"> <img class="profile" src="/assets/images/profile.png" alt="Author's profile picture"></a></header>
+                	<header>
+                        <a href="{{ site.baseurl }}">
+                            <img class="profile" src="https://1.gravatar.com/avatar/1b074e149fba1ae7cceaf9e8275fe34f?r=x&s=180" alt="Author's profile picture">
+                        </a>
+                    </header>
                 	<article>
                 		<!-- Author Name -->
-                    	<h4> {{ site.author }} </h4>
+                    	<h4> {{ site.author.name }} </h4>
                     	<!-- Author Bio -->
-                    	<p> 
-                    		Here goes the author description. You might want to place some links too in here
-                    	</p>
+                    	<p> {{ site.author.bio }} <a href='{{ site.baseurl }}{{ page.about }}'> About me.</a></p>
                     </article>
                 </section>                
             {% endif %}
