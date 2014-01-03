@@ -2,24 +2,31 @@
 (function ($) {
 	"use strict";
 
-	var cln = (new (function (opt) {
+	$.fn.cli = (function (opt) {
+		/* jQuery plugin. */
 
 		var lineClass = "cli-line";
 		var self = this;
+		var $clonned;
 
-		var options = {
+		var $el = this;
+		$clonned = $el.clone();
+		$el.html('').addClass('active');
+
+		var opts = {
 			debug: (opt && opt.debug) || true,
-			charDelay: (opt && opt.dd) || 100,		// character delay
-			prePutD: (opt && opt.prePutD) || 1000,	// pre put() delay
-			posPutD: (opt && opt.posPutD) || 1000,	// pos put() delay
+			charDelay: (opt && opt.dd) || 50,		// character delay
+			wsDelay: (opt && opt.dd) || 100,		// whitespace char delay
+			prePutD: (opt && opt.prePutD) || 400,	// pre put() delay
+			posPutD: (opt && opt.posPutD) || 400,	// pos put() delay
 		};
 
 		var debug = function () {
-			if (options.debug)
+			if (opts.debug)
 				console.debug.apply(console, arguments);
 		}
 
-		/* Part of Async */
+		/* Lock queue */
 		var Queue = new (function () {
 			var locked = false;
 			var _queue = [];
@@ -35,7 +42,7 @@
 				locked = false;
 			}
 
-			this.push = function (fn) {
+			this.append = function (fn) {
 				return function () {
 					var args = arguments;
 					var call = (function () {
@@ -58,38 +65,46 @@
 			}
 		});
 
-		/****************/
-
 		/* Exposed methods before Async-Lock Wrapping */
 		var methods = {
-			put: function put (msg, _opt) {
-				if (typeof msg === 'string') {
-					debug('msg is string');
-					var text = msg.slice().replace(/^\s+|\s+$/g, '');
-					var lineEl = $("<div>").addClass(lineClass).appendTo(self.$el);
-				} else {
-					debug('msg is/should-be HTML/jQuery element');
-					var text = $(msg).html().replace(/^\s+|\s+$/g, '');
-					var lineEl = $(msg).clone().html('').addClass(lineClass).appendTo(self.$el);
-				}
+			putNode: function putNode (textnode, $place, _opt) {
+				
+				debug('\tputting message', textnode, 'in', $place[0].outerHTML);
+				
+				if (textnode.nodeType == Node.TEXT_NODE) {
+					var text = $(textnode).text().replace(/^\s+|\s+$/g, '');
+					textnode.nodeValue = ''
+					var lineEl = $(textnode).clone().appendTo($place);
+				} else
+					throw 'err';
+
 				debug('new lineEl:', lineEl);
 
+				if (lineEl.has('b-cursor'))
+					lineEl.parent().addClass('blink-cursor')
 				setTimeout(function () {
 					var i = 0;
-					var int = setInterval(function () {
-						debug('character:', text[i])
-						lineEl.html(text.slice(0,++i));
-						if (i >= text.length) {
-							clearInterval(int);
+					(function thisFn () {
+						debug('character:', text[i]);
+						lineEl[0].nodeValue += text[i];
+						if (++i >= text.length) {
 							Queue.unlock();
 							Queue.prepend(methods.after)(function () {
-									lineEl.removeClass('b-cursor');
+									lineEl.parent().removeClass('blink-cursor');
 									Queue.unlock();
 								});
-							Queue.prepend(methods.wait)((_opt && prePutD.posPutD) || options.posPutD)
+							Queue.prepend(methods.wait)(opts.posPutD);
+							return;
 						}
-					}, (_opt && _opt.charDelay) || options.charDelay);
-				}, (_opt && _opt.prePutD) || options.prePutD);
+						var delay = (text[i]===' '&&opts.wsDelay)||opts.charDelay;
+						setTimeout(thisFn, delay);
+					})();
+				}, opts.prePutD);
+			},
+
+			fadeIn: function (obj) {
+				obj.fade
+				Queue.unlock();
 			},
 			
 			wait: function wait (ms) {
@@ -101,14 +116,51 @@
 			},
 
 			render: function render () {
-				var cs = self.$el.children();
-				for (var i=0, c=cs[0]; i<cs.length; i++, c=cs[i]) {
-					if (c.dataset.cli) {
-						var cc = $(c.innerHTML);
-						$(c).remove();
-						Queue.push(methods.put)(cc);
+				function renderNode (node, $place) {
+					console.log('\nrendering node', node, 'in', String($place.html()));
+					if (node.dataset && node.dataset.cli === 'fade') {
+						// Queue.prepend(function () {
+							$(node).hide().appendTo($place).fadeIn('slow');
+							Queue.unlock();
+						// })();
+						// Queue.unlock();
+						return;
 					}
+
+					// If node has childNodes (includes text nodes)
+					if (node.childNodes.length) {
+						// Recursively render the nodes.
+						debug('has child')
+						var css = $(node).contents();
+						var nplace = $(node).clone().html('').appendTo($place);
+						// for (var i=0; i<css.length; i++) {
+						for (var i=css.length-1; i+1; i--) {
+							console.log('cs[%s]',i, css[i], nplace)
+							Queue.prepend(renderNode)(css[i], nplace);
+						}
+					} else {
+						// Otherwise, render string.
+						debug('doesn\'t have child')
+						if (/^[\s\n\r]*$/.test($(node).text())) { // Empty text-node
+							debug('EMPTY!\n\n', node)
+							Queue.append(function() {
+								$(node).appendTo($place);
+								Queue.unlock();
+							})();
+							window.node = node;
+						} else {
+							debug('\tcontent', node, $place[0]);
+							Queue.prepend(methods.putNode)(node, $place);
+						}
+					}
+					Queue.unlock();
 				}
+
+				var cs = $clonned[0].childNodes;
+				for (var i=0; i<cs.length; i++) {
+					Queue.append(renderNode)(cs[i], $el);
+				}
+
 				Queue.unlock();
 			},
 
@@ -116,24 +168,13 @@
 				fn();
 			},
 		}
+		Queue.append(methods.render)();
 
-		return {
-			init: function (el) {
-				self.$el = $(el);
-				return this;
-			},
-			put: Queue.push(methods.put),
-			wait: Queue.push(methods.wait),
-			render: Queue.push(methods.render),
-			after: Queue.push(methods.after),
-		};
-
-	})).init($(".cli-wrapper"));
+		return this;
+	});
 
 	$(document).ready(function(){
-		cln.render()
-			// .put("I'm Felipe.").wait(1000)
-			// .put("Welcome to my hand-crafted webpage.");
+		$(".cli-wrapper").cli();
 	});
 
 }(jQuery));

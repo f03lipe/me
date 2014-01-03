@@ -1,7 +1,12 @@
+ 
+
+@import "macros.less";
+@import "font-awesome/font-awesome.less";
+// @import "bstp.less";
+@import "snshare.less";
 
 body {
 	font-size: 1.9rem; /* Font size of 2.0 is too big, I'll reduce it */
-
 	font-family: "Open Sans", sans-serif;
 }
 
@@ -9,12 +14,39 @@ h3 {
 	margin-bottom: 10px;
 }
 
+.site-head {
+	padding-left: 50px;
+	box-sizing: border-box;
+	text-align: left;
+}
+
 body.blog {
 
 	/* Adding some text shadow*/
-	.site-head {text-shadow: 2px 2px #234;}
-	.site-head a {color:#eee;}
+	.site-head {
+		text-shadow: 2px 2px #234;
+		
+		a {
+			color: white;
+			// text-decoration: none;
+			i {
+				font-size: 35px;
+				&.xl {
+					padding-right: 5px;
+				}
+			}
+			&:hover {
+			}
 
+			margin: auto 5px;
+		}
+
+		.blog-description {
+			font-size: 17px;
+			// font-style: italic;
+		}
+	}
+	
 	/* The font is too large in the post view. Revert to small size*/
 	.post-header .blog-title {font-size:inherit;}
 
@@ -50,8 +82,13 @@ body.index {
 }
 
 .cli-wrapper {
+	display: none;
 
-	.b-cursor::after {
+	&.active {
+		display: block;
+	}
+
+	.blink-cursor::after {
 		opacity: 0;
 -webkit-animation: blink-cursor 1s infinite;
    -moz-animation: all .4s ease-in-out;
