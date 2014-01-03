@@ -1,0 +1,39 @@
+---
+layout: blog
+cover: false
+about: 'about'
+cover: '/assets/images/rio4.jpg'
+noFooter: true
+---
+
+<header class="site-head" {% if page.cover %} style="background-image: url({{ page.cover }}); background-position-y: center; background-position-x: 550px; height: 100%"{% endif %}>
+	<div class="vertical">
+		<div class="site-head-content" class="inner" style="width: 550px">
+			<div class="cli-wrapper">
+				<h1 class="blog-title b-cursor"><a href="/" style="text-decoration:none">blog</a>/about</h1>
+			</div>
+				
+			{% if page.logo %}
+				<a class="blog-logo" href="{{ site.baseurl }}">
+					<img src="{{ page.logo }}" alt="Blog Logo" />
+				</a>
+			{% endif %}
+			</div>
+
+			<section class="post-content" style="width: 470px">
+				{{content}}
+			</section>
+
+		</div>
+	</div>
+</header>
+<!-- 
+
+<main class="content" role="main">
+	<article class="post">
+
+
+	</article>
+
+</main>
+ -->

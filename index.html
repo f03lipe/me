@@ -6,7 +6,7 @@ about: 'about'
 cover: '/assets/images/rio1.jpg'
 ---
 
-<header class="site-head" {% if page.cover %} style="background-image: url({{ page.cover }}); background-position-y: center;"{% endif %}>
+<header class="site-head" {% if page.cover %} style="background-image: url({{ page.cover }}); background-position-y: center"{% endif %}>
 	<div class="vertical">
 		<div class="site-head-content" class="inner">
 			<h3 class="b-cursor">Hi.</h3>
@@ -14,10 +14,8 @@ cover: '/assets/images/rio1.jpg'
 				<h1 class="blog-title b-cursor">{{ site.name }}</h1>
 			</div>
 			<h2 class="blog-description b-cursor" data-cli="fade">
-				follow me on
-				<a href="http://twitter.com/f03lipe"><em>twitter</em></a>
-				&amp;
-				<a href="http://github.com/f03lipe"><em>github</em></a><a span="">:)</a>
+				follow me on <a href="http://twitter.com/f03lipe"><em>twitter</em></a>
+				&amp; <a href="http://github.com/f03lipe"><em>github</em></a><a span="">:)</a> &bull; <a href="{{site.baseurl}}{{page.about}}">about me</a>
 			</h2>
 				
 			{% if page.logo %}
@@ -25,12 +23,6 @@ cover: '/assets/images/rio1.jpg'
 					<img src="{{ page.logo }}" alt="Blog Logo" />
 				</a>
 			{% endif %}
-			<!-- 
-				<h2 class="blog-description"> 
-					{{ site.description }}
-					{% if page.about %} <a href='{{site.baseurl}}{{page.about}}'> About me </a> {% endif %}
-				</h2> 
-			 -->
 			</div>
 
 		</div>

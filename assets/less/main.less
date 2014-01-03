@@ -2,12 +2,12 @@
 
 @import "macros.less";
 @import "font-awesome/font-awesome.less";
-// @import "bstp.less";
-@import "snshare.less";
+@import "plugins/scrollbars.less";
+
 
 body {
 	font-size: 1.9rem; /* Font size of 2.0 is too big, I'll reduce it */
-	font-family: "Open Sans", sans-serif;
+	// font-family: "Open Sans", sans-serif;
 }
 
 h3 {
@@ -28,17 +28,22 @@ body.blog {
 		
 		a {
 			color: white;
-			// text-decoration: none;
 			i {
 				font-size: 35px;
-				&.xl {
-					padding-right: 5px;
-				}
-			}
-			&:hover {
+				&.xl { padding-right: 5px; }
 			}
 
 			margin: auto 5px;
+		}
+
+		.post-content {
+			// color: #234;
+			// font-family: "Lora";
+			text-shadow: none;
+
+			a {
+				margin: 0;
+			}
 		}
 
 		.blog-description {
