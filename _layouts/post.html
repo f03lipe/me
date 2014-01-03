@@ -39,7 +39,7 @@ about: about
         	<h5>Archive</h5>
     		<ul>
     			{% for post in site.posts %}
-    				<li><span>{{ post.date | date_to_string }}</span>  <a href="{{ post.url }}">{{ post.title }}</a></li>
+    				<li><span>{{ post.date | date_to_string }}</span> <a href="{{ post.url }}">{{ post.title }}</a></li>
     			{% endfor %}	
     		</ul>
         </section>
@@ -58,7 +58,7 @@ about: about
                 		<!-- Author Name -->
                     	<h4> {{ site.author.name }} </h4>
                     	<!-- Author Bio -->
-                    	<p> {{ site.author.bio }} <a href='{{ site.baseurl }}{{ page.about }}'> About me.</a></p>
+                    	<p> {{ site.author.bio }} <a href='{{ site.baseurl }}{{ page.about }}'> More about me.</a></p>
                     </article>
                 </section>                
             {% endif %}

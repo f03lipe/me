@@ -1,8 +1,10 @@
 ---
-layout: page
+layout: default
 title: About me 
 ---
 
-My name is Felipe. That's all.
+My name is Felipe.<br>
 
-I program, but I do not think of myself as a programmer.
+I'm a student at [CEFET-RJ](http://en.wikipedia.org/wiki/Centro_Federal_de_Educa%C3%A7%C3%A3o_Tecnol%C3%B3gica_Celso_Suckow_da_Fonseca).
+
+I program.
