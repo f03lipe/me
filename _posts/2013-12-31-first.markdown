@@ -1,7 +1,0 @@
----
-layout: post
-title: "\"First??!?!\""
-date: 2014-01-01 19:12:22 -0200
----
-
-Come at me, 2014!

@@ -1,0 +1,17 @@
+---
+layout: post
+title: "\"First??!\" or \"What I want from 2014\""
+date: 2014-01-01 19:12:22 -0200
+tags: [update]
+
+---
+
+- more C++
+
+- to learn Go and Rust
+
+- more Calculus
+
+- more [vempraruavem.org]()
+
+- more [meavisa.org]()
