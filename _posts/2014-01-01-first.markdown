@@ -8,7 +8,7 @@ tags: [update]
 
 - more C++
 
-- to learn Go and Rust
+- to learn [Go](http://golang.org) and [Rust](http://github.com/mozilla/rust) and [React](http://facebook.github.io/react/)
 
 - more Calculus
 
