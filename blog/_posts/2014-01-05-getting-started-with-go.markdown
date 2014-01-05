@@ -34,7 +34,11 @@ What geek doesn't love a list of resources, right?
 
 - [A Tour Of Go](http://tour.golang.org/)
 
+- [Go by Example](https://gobyexample.com/)
+
 - [GoLang website](http://golang.org)
+
+- [The Spec](http://golang.org/ref/spec)
 
 Oh, and THIS:
 
