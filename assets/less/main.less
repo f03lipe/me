@@ -82,8 +82,41 @@ body.blog {
 body.index {
 	padding-top: 40px;
 	padding-left: 40px;
+}
 
-	font-size: 1;
+.index {
+	position: relative;
+	display: table;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	background: #303538 no-repeat center center;
+    background-size: cover;
+	color: white; //#344;
+
+	a {
+		text-decoration: none;
+		padding: 2px;
+		&:hover {
+			color: white;
+			background: #344;
+		}
+			text-shadow: none;
+			font-weight: 500;
+	}
+
+	.content {
+		text-shadow: 1px 1px rgba(0,0,0,.4);
+		font-size: 20px;
+		padding-left: 40px;
+		font-family: "Open Sans";
+		max-width: 436px;
+		font-weight: normal;
+	}
+	
+	h1, h2, h3 {
+		text-shadow: 2px 2px rgba(0,0,0,.4);
+	}
 }
 
 .cli-wrapper {
@@ -115,4 +148,23 @@ body.index {
 
 @-webkit-keyframes blink-cursor {
 	50% { opacity: 1; }
+}
+
+.content {
+
+	.post {
+		padding: 20px;
+		margin: 0 auto;
+	}
+}
+
+.site-footer {
+	margin-top: 20px;
+	background: #344;
+}
+
+article.post {
+	hr {
+		margin: 1.5em 0;
+	}
 }

@@ -1,69 +1,24 @@
 ---
 layout: blog
-title: felip.me
+title: felip.me 
+cover: false
 about: 'about'
-cover: '/assets/images/rio5.jpg'
+noFooter: true
 ---
 
-<header class="site-head" {% if page.cover %} style="background-image: url({{ page.cover }}); background-position-y: center"{% endif %}>
+<div class="index" style="background-image: url(/assets/images/rio2.jpg); background-position-y: center;">
 	<div class="vertical">
-		<div class="site-head-content" class="inner">
-			{% if page.logo %}
-				<a class="blog-logo" href="{{ site.baseurl }}">
-					<img src="{{ page.logo }}" alt="Blog Logo" />
-				</a>
-			{% endif %}
-			<h3 class="b-cursor">Hi.</h3>
+		<div class="content" class="inner" style="width: 550px">
 			<div class="cli-wrapper">
-				<h1 class="blog-title b-cursor">{{ site.name }}</h1>
-			</div>
-			<h2 class="blog-description b-cursor" data-cli="fade">
-				follow me on <a href="http://twitter.com/f03lipe"><em>twitter</em></a>
-				&amp; <a href="http://github.com/f03lipe"><em>github</em></a><a span="">:)</a> &bull; <a href="{{site.baseurl}}{{page.about}}">about me</a>
-			</h2>
-			</div>
-
+				<h1 class="blog-title b-cursor">Helloooo</h1>
+			</div>	
+			<section class="post-content">
+				I'm Felipe. Pleasure to meet you.<br>
+				I <strike>am</strike> used to be a student at <a href="http://en.wikipedia.org/wiki/Centro_Federal_de_Educa%C3%A7%C3%A3o_Tecnol%C3%B3gica_Celso_Suckow_da_Fonseca">CEFET-RJ</a>.<br>
+				I'm into <a href="http://github.com/f03lipe">programming</a> and I <a href="http://twitter.com/f03lipe">tweet</a> ocasionally.
+				I'm currently working on <a href="#">meavisa.org</a> and <a href="#">vempraruavem.org</a> and volunteering at <a href="http://turmacidada.org">Turma&nbsp;Cidadã&nbsp;Brasil</a>.
+				I blog <a href="/blog">here</a>.
+			</section>
 		</div>
 	</div>
-</header>
-
-<main class="content" role="main">
-
-	{% for post in paginator.posts %}
-
-	<article class="post">
-		<header class="post-header">
-			<span class="post-meta">
-				<time datetime="{{ post.date | date_to_string }}">{{ post.date | date_to_string }}</time>
-				{{!tags prefix="on "}}
-			</span>
-			<h2 class="post-title"><a href="{{ post.url}}">{{ post.title }}</a></h2>
-
-		</header>
-		<section class="post-excerpt">
-			{{ post.excerpt }}
-		</section>
-	</article>
-
-	{% endfor %}
-
-	<nav class="pagination" role="pagination">
-
-		{% if paginator.previous_page %}
-		  {% if paginator.previous_page == 1 %}
-		  <a class="newer-posts" href="/" title="Previous Page">&laquo; Newer Posts</a>
-		  {% else %}
-		  <a class="newer-posts" href="/page{{ paginator.previous_page }}/" title="Previous Page">&laquo; Newer Posts</a>
-		  {% endif %}
-		{% endif %}
-
-		<span class="page-number"> Page {{paginator.page}} of {{paginator.total_pages}} </span>
-		
-		{% if paginator.next_page %} 
-		<a class="older-posts" href="/page{{ paginator.next_page }}/" title="Next Page">Older Posts &raquo;</a>
-		{% endif %} 
-	</nav>
-	
-
-</main>
-
+</div>
