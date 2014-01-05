@@ -11,19 +11,28 @@ I've already began studying [Go](http://golang.org).
 ### What I've learned so far
 
 Go is a modern compiled language, developed at Google.
-It's syntax is like so:
+Some sample code:
 
 {% highlight go %}
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-fun sum (a, b int) int {
-	return a+b;
+func fibonacci() func() int {
+	var last, llast int = 0, 1
+	return func() int {
+		last, llast = llast+last, last
+		return last
+	}
 }
 
-fun main () {
-	a := sum(2,3)
+func main() {
+	f := fibonacci()
+	for i := 0; i < 10; i++ {
+		fmt.Println(f())
+	}
 }
 
 {% endhighlight %}
