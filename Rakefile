@@ -53,6 +53,11 @@ HTML
   puts "new post generated in #{path}"
 end
 
+desc ''
+task :push do
+  system("git add -A && git commit -am 'new post' && git push && git push github master")
+end
+
 desc "Launch preview environment"
 task :preview do
   system "bundle exec jekyll serve --watch --future --drafts"

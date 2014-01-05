@@ -4,7 +4,7 @@ title: "Getting Started With Go"
 date: 2014-01-05 05:59:43 -0200
 ---
 
-Following the [New Year's promise](http://localhost:4000/2014/01/01/first/),
+Following the [New Year's promise](/blog/2014/01/01/first/),
 I've already began studying [Go](http://golang.org).
 
 
