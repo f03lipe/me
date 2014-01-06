@@ -10,7 +10,8 @@ I've already began studying [Go](http://golang.org).
 
 ### What I've learned so far
 
-Go is a modern compiled language, developed at Google.
+Go is a modern statically-typed compiled language, developed at Google. It's
+garbage-collected, . And closures!
 Some sample code:
 
 {% highlight go %}
@@ -46,14 +47,16 @@ What geek doesn't love a list of resources, right?
 - [Go by Example](https://gobyexample.com/)
 
 - [GoLang website](http://golang.org)
-
+	
 - [The Spec](http://golang.org/ref/spec)
 
-Oh, and THIS:
+Oh, and THESE:
 
 - ["Public Static Void"](http://www.youtube.com/watch?v=5kj5ApnhPAE), a small
 talk at OSCON'10 by Rob Pike, from Google, about Go being prodly statically
 typed.
+
+- ["Go for Pythonistas"](https://www.youtube.com/watch?v=elu0VpLzJL8)
 
 I'll update this as I go on to .
 
