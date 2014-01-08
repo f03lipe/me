@@ -50,6 +50,8 @@ What geek doesn't love a list of resources, right?
 	
 - [The Spec](http://golang.org/ref/spec)
 
+- [GoLang Book](http://www.golang-book.com/) \o/
+
 Oh, and THESE:
 
 - ["Public Static Void"](http://www.youtube.com/watch?v=5kj5ApnhPAE), a small
