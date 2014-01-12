@@ -47,7 +47,8 @@ body.blog {
 		}
 
 		.blog-description {
-			font-size: 17px;
+			font-size: 17px;	
+			text-shadow: 1px 1px #444;
 			// font-style: italic;
 		}
 	}
@@ -89,18 +90,22 @@ body.blog {
     background-size: cover;
 	color: white;
 
-	a {
-		text-decoration: none;
-		padding: 2px;
-		text-shadow: none;
-		font-weight: 500;
-		color: white;
+	.text {
+		&:extend(.post-content);		
 
-		&.roll {
-			.roll(transparent, #08C);
-		}
-		&:not(.roll):hover {
-			text-shadow: 1px 1px rgba(0,0,0,.5);
+		a {
+			text-decoration: none;
+			padding: 2px;
+			text-shadow: none;
+			font-weight: 500;
+			color: white;
+
+			&.roll {
+				.roll(transparent, #08C);
+			}
+			&:not(.roll):hover {
+				text-shadow: 1px 1px rgba(0,0,0,.5);
+			}
 		}
 	}
 

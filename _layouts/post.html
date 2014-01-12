@@ -10,7 +10,12 @@ cover: '/assets/images/rio1.jpg'
 ---
 
 
-<header class="site-head" {% if page.cover %} style="height: 40%; background-image: url({{ page.cover }}); background-position-y: center"{% endif %}>
+<header class="site-head"
+{% if page.postCover %}
+	style="height: 40%; background-image: url({{ page.postCover }}); background-position-y: center"
+{% else %}
+	style="height: 40%; background-image: url({{ page.cover }}); background-position-y: center"
+{% endif %}>
 	<div class="vertical">
 		<div class="site-head-content" class="inner">
 	 
@@ -22,7 +27,7 @@ cover: '/assets/images/rio1.jpg'
 			</div>
 			<h2 class="blog-description b-cursor" data-cli="fade">
 				follow me on <a href="http://twitter.com/f03lipe"><em>twitter</em></a>
-				&amp; <a href="http://github.com/f03lipe"><em>github</em></a><a span="">:)</a> &bull; <a href="{{site.baseurl}}{{page.about}}">about me</a>
+				&amp; <a href="http://github.com/f03lipe"><em>github</em></a>
 			</h2>
 			</div>
 
@@ -33,19 +38,6 @@ cover: '/assets/images/rio1.jpg'
 <main class="content" role="main">
 
 	<article class="post">
-<!-- 
-		<span class="post-meta">
-			<time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
-			{% if post.showCategories %}
-				on
-				{% for category in page.categories %}
-					#{{category}}
-				{% endfor %}
-			{% endif %}
-		</span> -->
-<!-- 
-		<h1 class="post-title">{{ page.title }}</h1>
- -->
 		<section class="post-content">
 			{{content}}
 		</section>

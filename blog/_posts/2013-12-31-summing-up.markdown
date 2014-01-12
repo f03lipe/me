@@ -5,7 +5,7 @@ date: 2013-12-31 20:58:24 -0200
 categories: [update]
 ---
 
-__2013 was cr42y.__
+_2013 was cr42y._
 
 It was certainly my busiest year ever. This year, **I**:
 
