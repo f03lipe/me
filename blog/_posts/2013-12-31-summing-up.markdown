@@ -15,25 +15,25 @@ It was certainly my busiest year ever.
 
 This year, I:
 
-- [transcoded the code in the MIT SICp video-lectures from 1986.](http://f03lipe.github.com/sicp-code)
+- [transcoded the code in the MIT SICp video-lectures from 1986..](http://f03lipe.github.com/sicp-code)
 
-- [developed meavisa.org](http://meavisa.org)
+- [developed meavisa.org.](http://meavisa.org)
 
-- [developed vempraruavem.org](http://vempraruavem.org)
+- [developed vempraruavem.org.](http://vempraruavem.org)
 
-- [finally finished turmacidada.org](http://turmacidada.org)
+- [finally finished turmacidada.org.](http://turmacidada.org)
 
-- [developed magnetproject.us](http://github.com/f03lipe/magnetproject)
+- [developed magnetproject.us.](http://github.com/f03lipe/magnetproject)
 
 #### the little ones
 
-- [coded this tiny-list interpreter in <70 lines of Python](https://github.com/f03lipe/tiny-lisp)
+- [coded this tiny-list interpreter in <70 lines of Python.](https://github.com/f03lipe/tiny-lisp)
 
-- [programmed a substitution decipher in C/Python](http://github.com/f03lipe/decipher)
+- [programmed a substitution decipher in C/Python.](http://github.com/f03lipe/decipher)
 
-- [wrote a python parser for Tom's Obvious Minimal Language](http://github.com/f03lipe/toml-python)
+- [wrote a python parser for Tom's Obvious Minimal Language.](http://github.com/f03lipe/toml-python)
 
-- [put together a tool for memorizing Pi](http://f03lipe.github.io/memorizepie/)
+- [put together a tool for memorizing Pi.](http://f03lipe.github.io/memorizepie/)
 
 ## Readings
 
