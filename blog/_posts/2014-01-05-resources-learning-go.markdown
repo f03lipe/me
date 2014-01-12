@@ -28,6 +28,7 @@ talk at OSCON'10 by Rob Pike, from Google, about Go being prodly statically
 typed.
 - ["Go's Programming Environment"](https://vimeo.com/53221558)
 - ["Go for Pythonistas"](https://www.youtube.com/watch?v=elu0VpLzJL8)
-- [Go Concurrency Patterns](http://www.youtube.com/watch?v=gfMOD7tZAw4) by Rob Pike, at Google I/O 2012
+- ["Go Concurrency Patterns"](http://www.youtube.com/watch?v=gfMOD7tZAw4) by Rob Pike, at Google I/O 2012
+- ["Writing Web Apps in Go"](http://www.youtube.com/watch?v=-i0hat7pdpk). Yes, same title.
 
 I'm still deciding on a Go project to take up, in order to develop my skills.
