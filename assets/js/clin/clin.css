@@ -1,0 +1,36 @@
+
+/* clin.css from github.com/f03lipe/clin
+* Authored by Felipe Aragão
+* Licensed under MIT License
+*/
+
+.cli-wrapper {
+	display: none;
+}
+	
+.cli-wrapper.active {
+	display: block;
+}
+
+.cli-wrapper .blink-cursor::after {
+	opacity: 0;
+-webkit-animation: blink-cursor 1s infinite;
+-moz-animation: all .4s ease-in-out;
+-ms-animation: all .4s ease-in-out;
+ -o-animation: all .4s ease-in-out;
+	animation: blink-cursor 1s infinite;
+	content: "|";
+}
+
+.cli-wrapper .cli-content, 
+.cli-wrapper [data-cli]:not(.cli-line) {
+	display: none;
+}
+
+@keyframes blink-cursor {
+	50% { opacity: 1; }
+}
+
+@-webkit-keyframes blink-cursor {
+	50% { opacity: 1; }
+}

@@ -39,10 +39,12 @@ cover: '/assets/images/rio5.jpg'
 			</span>
 			<h3 class="post-title"><a href="{{ post.url}}">{{ post.title }}</a></h3>
 
-		</header><!-- 
+		</header>
 		<section class="post-excerpt">
-			{ post.excerpt }
-		</section> -->
+			{% unless post.noExcerpt %}
+				{{ post.excerpt }}
+			{% endunless %}
+		</section>
 	</article>
 
 	{% endfor %}

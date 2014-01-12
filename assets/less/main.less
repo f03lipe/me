@@ -3,7 +3,7 @@
 @import "macros.less";
 @import "font-awesome/font-awesome.less";
 @import "plugins/scrollbars.less";
-
+@import "../js/clin/clin.css";
 
 body {
 	font-size: 1.9rem; /* Font size of 2.0 is too big, I'll reduce it */
@@ -79,11 +79,6 @@ body.blog {
 	}
 }
 
-body.index {
-	padding-top: 40px;
-	padding-left: 40px;
-}
-
 .index {
 	position: relative;
 	display: table;
@@ -92,62 +87,52 @@ body.index {
 	margin: auto;
 	background: #303538 no-repeat center center;
     background-size: cover;
-	color: white; //#344;
+	color: white;
 
 	a {
 		text-decoration: none;
 		padding: 2px;
-		&:hover {
-			color: white;
-			background: #344;
+		text-shadow: none;
+		font-weight: 500;
+		color: white;
+
+		&.roll {
+			.roll(transparent, #08C);
 		}
-			text-shadow: none;
-			font-weight: 500;
+		&:not(.roll):hover {
+			text-shadow: 1px 1px rgba(0,0,0,.5);
+		}
 	}
 
 	.content {
-		text-shadow: 1px 1px rgba(0,0,0,.4);
+		text-shadow: 1px 1px rgba(0,0,0,.5);
 		font-size: 20px;
-		padding-left: 40px;
 		font-family: "Open Sans";
 		max-width: 436px;
+		padding-left: 40px;
 		font-weight: normal;
+		// width: 550px;
+		// float: right;
+		// text-align: right;
+		// margin-right: 30px;
+	}
+
+	.twitter-icon {
+		.fa-mixin;
+		.fa-mixin-icon(twitter);
+		// .roll-icon(twitter);
 	}
 	
 	h1, h2, h3 {
 		text-shadow: 2px 2px rgba(0,0,0,.4);
 	}
-}
 
-.cli-wrapper {
-	display: none;
-
-	&.active {
-		display: block;
+	.greeting {
+		.transition(all, .2ms, linear);
+		&:hover {
+			text-shadow: 0 0 rgba(0,0,0,.4);
+		}
 	}
-
-	.blink-cursor::after {
-		opacity: 0;
--webkit-animation: blink-cursor 1s infinite;
-   -moz-animation: all .4s ease-in-out;
-   	-ms-animation: all .4s ease-in-out;
-	 -o-animation: all .4s ease-in-out;
-		animation: blink-cursor 1s infinite;
-		content: "|";
-	}
-	
-	.cli-content, [data-cli]:not(.cli-line) {
-		display: none;
-	}
-
-}
-
-@keyframes blink-cursor {
-	50% { opacity: 1; }
-}
-
-@-webkit-keyframes blink-cursor {
-	50% { opacity: 1; }
 }
 
 .content {
@@ -166,5 +151,88 @@ body.index {
 article.post {
 	hr {
 		margin: 1.5em 0;
+	}
+}
+
+
+/*********************************************
+ * ROLLING LINKS
+ *********************************************/
+
+@bg1: rgb(190,190,20);
+@bg2: #a533fd;
+
+.roll (@bg1, @bg2, @color2: white) {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+
+    -webkit-perspective: 300px;
+       -moz-perspective: 300px;
+        -ms-perspective: 300px;
+            perspective: 300px;
+
+    -webkit-perspective-origin: 50% 50%;
+       -moz-perspective-origin: 50% 50%;
+        -ms-perspective-origin: 50% 50%;
+            perspective-origin: 50% 50%;
+	&:hover {
+	    background: none;
+	    text-shadow: none;
+	}
+
+	span {
+	    display: block;
+	    position: relative;
+	    padding: 0 2px;
+	    pointer-events: none;
+
+	    -webkit-transition: all 600ms ease;
+	       -moz-transition: all 400ms ease;
+	        -ms-transition: all 400ms ease;
+	            transition: all 400ms ease;
+	    
+	    -webkit-transform-origin: 50% 0%;
+	       -moz-transform-origin: 50% 0%;
+	        -ms-transform-origin: 50% 0%;
+	            transform-origin: 50% 0%;
+	    
+	    -webkit-transform-style: preserve-3d;
+	       -moz-transform-style: preserve-3d;
+	        -ms-transform-style: preserve-3d;
+	            transform-style: preserve-3d;
+	}
+
+	&:hover span {
+	    background: @bg1;
+
+	    -webkit-transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
+	       -moz-transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
+	        -ms-transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
+	            transform: translate3d( 0px, 0px, -55px ) rotateX( 90deg );
+	}
+
+	span:after {
+	    content: attr(data-title);
+
+	    display: block;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    padding: 1px 2px;
+	    white-space: nowrap;
+
+	    color: @color2;
+	    background: @bg2; 
+
+	    -webkit-transform-origin: 50% 0%;
+	       -moz-transform-origin: 50% 0%;
+	        -ms-transform-origin: 50% 0%;
+	            transform-origin: 50% 0%;
+
+	    -webkit-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+	       -moz-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+	        -ms-transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+	            transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
 	}
 }
