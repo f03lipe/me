@@ -5,7 +5,7 @@ date: 2013-12-31 20:58:24 -0200
 categories: [update]
 ---
 
-_General thoughts, readings etc_
+_Thoughts, projects, readings_
 
 _2013 was cr42y._
 
