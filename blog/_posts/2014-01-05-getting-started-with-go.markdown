@@ -30,6 +30,4 @@ typed.
 - ["Go for Pythonistas"](https://www.youtube.com/watch?v=elu0VpLzJL8)
 - [Go Concurrency Patterns](http://www.youtube.com/watch?v=gfMOD7tZAw4) by Rob Pike, at Google I/O 2012
 
-I'm still deciding on a project to work on, in order to develop my Go skills.
-This project 
-I've been thinking: what if I wrote a simple SO using Go? =O
+I'm still deciding on a Go project to take up, in order to develop my Go skills.
