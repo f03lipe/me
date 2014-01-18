@@ -26,9 +26,9 @@ task :new do
   slug = ENV["slug"] ? ENV["slug"].gsub(' ','-').downcase : title.downcase.strip.gsub(/[^\w-]/, ' ').gsub(/\s+/, '-')
 
   if future.to_i < 3
-    TARGET_DIR = "_posts"
+    TARGET_DIR = "blog/_posts"
   else
-    TARGET_DIR = "_drafts"
+    TARGET_DIR = "blog/_drafts"
   end
 
   if future.to_i.zero?
