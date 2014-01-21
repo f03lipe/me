@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Resources for Learning Go"
+postCover: /assets/images/post/gopher-color.jpg
 date: 2014-01-05 05:59:43 -0200
 ---
 
@@ -30,5 +31,3 @@ talk at OSCON'10 by Rob Pike, from Google.
 - ["Writing Web Apps in Go"](http://www.youtube.com/watch?v=-i0hat7pdpk). Yes, same title as the article.
 - ["Go Concurrency Patterns"](http://www.youtube.com/watch?v=gfMOD7tZAw4) by Rob Pike, at Google I/O 2012
 - ["Origins of Go Concurrency style"](http://www.youtube.com/watch?v=3DtUzH3zoFo). by Rob Pike too.
-
-After having consumed all of this, I'm looking for a Go project to help/start.
